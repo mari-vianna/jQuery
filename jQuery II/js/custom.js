@@ -1,66 +1,82 @@
-// instancia jquery e evita conflitos
-// jQuery( function($){
-$(document).ready(function(){
-
-      $('.owl-carousel').owlCarousel();
-
-    let titulos = $('h4') // tag
+   $(document).ready(function(){
    
-    let itens = $('.featured-item') // class
+      $('.owl-carousel').owlCarousel();
+      
+      let titulos = $('h4') // tag
+      let itens = $('.featured-item') // class
+      let destaques = $('#featured') // id
+})
 
-    let destaques = $('#featured') // id
+   $('.featured-item h4').dblclick( function(){
 
-      console.log(titulos.first());
-
-    // Configuração de produtos
-
-$('.featured-item a').addClass('btn btn-dark stretch-link');
-
-$('.featured-item:first h4').append('<span class="badge bg-secondary">Novo</span>')
-    // $('.featured-item:first h4').start('<span class="badge bg-secondary">Novo</span>')
-    // $('.featured-item:first h4').html('<span class="badge bg-secondary">Novo</span>')
-    // $('.featured-item:first h4').addClass('active')
-    // $('.featured-item:first h4').removeClass('active')
-    // $('.featured-item:first h4').toggleClass('active')
-    // $('.featured-item:first h4').hide()
-    // $('.featured-item:first h4').show()
-    // $('.featured-item:first h4').fadeIn(2000)
-    // $('.featured-item:first h4').fadeOut()
-    //  $('.featured-item:first h4').css('color', '#f00')
-
-$('.featured-item h4').dblclick( function(){
-
-         $(this).css({
-            'color': '#f00',
-            'background': '#ff0',
-            'font-weight': '100',
+      $(this).css({
+         'color': '#f00',
+         'background': '#ff0',
+         'font-weight': '100',
          });
-
 });
 
+   $('#form-submit').on('click', function(e){
+      e.preventDefault()
+   
+      if( $('#email').val() != '' ){
+         $('#email').animate({
+            opacity: "toggle",
+            top: "-50"
+         }, 500, function(){
+               console.log($(this).val())
+         })
+      }
+}); 
+
 /*
-* Manipulação de eventos
+* Ouvinte de eventos .nav-modal-open
 */
-$('.featured-item a').on('blur', function(event){
+   $('.nav-modal-open').on('click', function(e){
+      e.preventDefault();
+   
+      let elem = $(this).attr('rel')
+   
+      $('.modal-body').html($('#'+elem).html())
+      $('.modal-header h5.modal-title').html($(this).text())
+   
+      let myModal = new bootstrap.Modal($('#modelId'))
+      myModal.show()
+   })
 
-   event.preventDefault();
 
-   alert('Produto esgotado');
+/*
+* Validação do Formulário
+*/
+
+function validate( elem ){
+   if( elem.val() == '') {
+
+      console.log('o campo de '+ elem.attr('name') + ' é obrigatório')
+
+      elem.parent().find('.text-muted').show()
+
+      elem.addClass('invalid')
+
+      return false
+   } else {
+      elem.parent().find('.text-muted').hide()
+      elem.removeClass('invalid')
+   }
+}
+
+$(document).on('submit', function(e){
+   e.preventDefault();
 
 })
 
+/*
+* Máscaras 
+*/
+$(document).ready(function(){
+   $('#date').mask('00/00/0000', {placeholder: '__/__/____'});
+   $('time').mask('00:00', {placeholder: '00:00'});
+   $('#cep').mask('00000-000', {placeholder: '_____-___'});
+   $('#telefone').mask('(00)00000-0000',{placeholder: '(__)_____-____'});
+   $('#cpf').mask('000.000.000-00', {reverse: true, placeholder:'___.___.___-__'});
 })
-
-$('nav-modal-open').on("click", function(e){
-   e.preventDefault ();
-
-   let elemento = $(this).attr('rel')
-
-   $('.modal-body').html($("#"+elemento).html())
-
-   let myModal = new bootstrap.Modal($('#modelId'))
-
-   myModal.show()
-
-})
-
