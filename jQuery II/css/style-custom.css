@@ -314,6 +314,10 @@ a {
 	border: none;
 }
 
+#errorMsg {
+    color: red;
+}
+
 /* Footer Style */
 .footer {
 	text-align: center;
