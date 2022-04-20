@@ -72,31 +72,31 @@
                                 <img src="./img/item-01.jpg" alt="Item 1">
                                 <h4>Produto 1</h4>
                                 <h6>R$ 20,00</h6>
-                                <a  class="btn btn-dark" href="single-product.html">Comprar</a>
+                                <a  class="btn btn-dark" href="#">Comprar</a>
                             </div>
                             <div class="featured-item">
                                 <img src="./img/item-02.jpg" alt="Item 2">
                                 <h4>Produto 2</h4>
                                 <h6>R$ 20,00</h6>
-                                <a class="btn btn-dark" href="single-product.html">Comprar</a>
+                                <a class="btn btn-dark" href="#">Comprar</a>
                             </div>
                             <div class="featured-item">
                                 <img src="./img/item-03.jpg" alt="Item 3">
                                 <h4>Produto 3</h4>
                                 <h6>R$ 20,00</h6>
-                                <a class="btn btn-dark" href="single-product.html">Comprar</a>
+                                <a class="btn btn-dark" href="#">Comprar</a>
                             </div>
                             <div class="featured-item">
                                 <img src="./img/item-04.jpg" alt="Item 4">
                                 <h4>Produto 4</h4>
                                 <h6>R$ 20,00</h6>
-                                <a class="btn btn-dark" href="single-product.html">Comprar</a>
+                                <a class="btn btn-dark" href="#">Comprar</a>
                             </div>
                             <div class="featured-item">
                                 <img src="./img/item-05.jpg" alt="Item 5">
                                 <h4>Produto 5</h4>
                                 <h6>R$ 20,00</h6>
-                                <a class="btn btn-dark" href="single-product.html">Comprar</a>
+                                <a class="btn btn-dark" href="#">Comprar</a>
                             </div>
 
                         </div>
@@ -182,7 +182,7 @@
             </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Começo do Modal  -->
             <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -196,21 +196,21 @@
                 </div>
             </div>
 
-
             <div id="contato" class="visually-hidden">
-
                 <form action="post" class="myForm" id="myForm">
 
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
                         <input type="text" name="nome" id="nome" title="Insira seu nome completo" class="form-control" placeholder="Digite seu nome" aria-describedby="helpNome">
-                        <span class="errorMsg" id="errorMsg"></span>
+                        <small>*Campo Obrigatório</small>
+                        <p id="errorNome"></p>
+                    </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="text" name="email" id="email" class="form-control" placeholder="Digite seu e-mail" aria-describedby="helpEmail">
-                        <span class="errorMsg" id="errorMsg"></span>
-
+                        <small>*Campo Obrigatório</small>
+                        <p id="errorEmail"></p>
                     </div>
 
                     <div class="mb-3">
@@ -226,28 +226,32 @@
                     <div class="mb-3">
                         <label for="cep" class="form-label">CEP</label>
                         <input type="text" name="cep" id="cep" class="form-control" placeholder="Digite seu CEP" aria-describedby="helpCEP">
-                        <span class="errorMsg" id="errorMsg"></span>
+                        <small>*Campo Obrigatório</small>
+                        <p id="errorCep"></p>
+
                     </div>
 
                     <div class="mb-3">
                         <label for="celular" class="form-label">Celular</label>
                         <input type="text" name="celular" id="celular" class="form-control" placeholder="Digite seu celular" aria-describedby="helpCelular">
-                        <span class="errorMsg" id="errorMsg"></span>
+                        <small>*Campo Obrigatório</small>
+                        <p id="errorCelular"></p>
 
                     </div>
 
                     <div class="mb-3">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="number" name="cpf" id="cpf" class="form-control" placeholder="Digite seu CPF" aria-describedby="helpCPF">
-                        <small id="helpCPF" class="text-muted">Campo Obrigatório.</small>
-                    </div>
+                        <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite seu CPF" aria-describedby="helpCPF">
+                        <small>*Campo Obrigatório</small>
+                        <p id="errorCpf"></p>
 
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                    <button type="submit" id="submitButton"class="btn btn-primary">Enviar</button>
                 </form>
             </div>
 
             <div id="sobre" class="visually-hidden">Loja especializada em moda feminina</div>
-        <!-- FIM do Modal Sobre-->
+        <!-- FIM do Modal-->
         
         <!--Library-->
             <script src="./vendor/jquery/jquery-3.6.0.min.js"></script>

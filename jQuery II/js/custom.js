@@ -44,91 +44,72 @@ $('.nav-modal-open').on('click', function(e){
    myModal.show()
 })
 
-
 /*
-* Validação Formulário
+* Input Validation with RegEx
 */
 
 $(document).on('submit', '.modal-body .myForm', function(e){
    e.preventDefault()
 
    let inputName = $('#nome').val();
+   let regxName = /^([a-zA-Z]{>2})$/;
+
+      if (!regxName.test(inputName)){
+         $('#errorNome').show();
+         $('#errorNome').text ('Digite um nome válido.');
+      } else  {
+         (regxName.test(inputName))
+         $('#errorNome').hide();
+         $(this).submit()
+      }
+
    let inputEmail = $('#email').val();
+   let regxEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)/;
+   
+      if (!regxEmail.test(inputEmail)){
+         $('#errorEmail').show();
+         $('#errorEmail').text ('Digite um email válido.');
+      } else  {
+         (regxEmail.test(inputEmail))
+         $('#errorEmail').hide();
+         $(this).submit()
+      }
+
    let inputCep = $('#cep').val();
+   let regxCep = /^([0-9]{8})/;
+   
+      if (!regxCep.test(inputCep)){
+         $('#errorCep').show();
+         $('#errorCep').text ('Digite um CEP válido.');
+      } else  {
+         (regxCep.test(inputCep))
+         $('#errorCep').hide();
+         $(this).submit()
+      }
+
    let inputCelular = $('#celular').val();
-   let inputCpf = $('#cpf').val()
-
-   if(inputName==""){
-      $('#errorMsg').show();
-      $('#errorMsg').text ('Campo Obrigatório.');
-      return false
-   } else{
-      let regName = /^([a-zA-Z]{2})$/;
-
-      if(!regName.test(inputName)){
-      $('#errorMsg').show();
-      $('#errorMsg').text ('Digite um nome válido.');
-      return false
+   let regxCelular = /^[0-9]{11}/;
+   
+      if (!regxCelular.test(inputCelular)){
+         $('#errorCelular').show();
+         $('#errorCelular').text ('Digite um Celular válido.');
+      } else  {
+         (regxCelular.test(inputCelular))
+         $('#errorCelular').hide();
+         $(this).submit()
       }
-   };  
 
-   if(inputEmail==""){
-      $('#errorMsg').show();
-      $('#errorMsg').text ('Campo Obrigatório.');
-      return false
-   } else {
-      let regEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?/i;
-
-      if(!regEmail.test(inputEmail)){
-      $('#errorMsg').show();
-      $('#errorMsg').text ('Digite um email válido.');
-      return false
+   let inputCpf = $('#cpf').val();
+   let regxCpf = /^[0-9]{11}/;
+      
+      if (!regxCpf.test(inputCpf)){
+         $('#errorCpf').show();
+         $('#errorCpf').text ('Digite um CPF válido.');
+      } else  {
+         (regxCpf.test(inputCpf))
+         $('#errorCpf').hide();
+         $(this).submit()
       }
-   };
-
-   if(inputCep==""){
-      $('#errorMsg').show();
-      $('#errorMsg').text ('Campo Obrigatório.');
-      return false
-   } else {
-      let regCep = /^([0-9]{5}-[0-9]{3})/;
-
-      if(!regCep.test(inputCep)){
-         $('#errorMsg').show();
-         $('#errorMsg').text ('Digite um CEP válido.');
-         return false
-         }
-   };
-
-   if(inputCelular==""){
-      $('#errorMsg').show();
-      $('#errorMsg').text ('Campo Obrigatório.');
-      return false
-   } else {
-      let regCelular = /^[0-9]{11}/;
-
-      if(!regCelular.test(inputCelular)){
-         $('#errorMsg').show();
-         $('#errorMsg').text ('Digite um celular válido.');
-         return false
-         }
-   };
-
-   if(inputCpf==""){
-      $('#errorMsg').show();
-      $('#errorMsg').text ('Campo Obrigatório.');
-      return false
-   } else {
-      let regCpf = /^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}/;
-
-      if(!regCpf.test(inputCpf)){
-         $('#errorMsg').show();
-         $('#errorMsg').text ('Digite um celular válido.');
-         return false
-         }
-   };
-
-   return true
 })
 
 /*

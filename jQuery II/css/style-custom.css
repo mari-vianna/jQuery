@@ -314,8 +314,13 @@ a {
 	border: none;
 }
 
-#errorMsg {
+#errorNome, 
+#errorEmail,
+#errorCep,
+#errorCelular,
+#errorCpf {
     color: red;
+	padding: .3rem;
 }
 
 /* Footer Style */
