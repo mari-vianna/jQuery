@@ -143,7 +143,7 @@ $(document).on('submit', '.modal-body .myForm', function(e) {
          }
    }
 
-   $(document).submit(function(){
+   $(body).submit(function(){
 
       erro_Nome = false;
       erro_Email = false;
