@@ -59,110 +59,118 @@ $('.nav-modalProdutos').on('click', function(e){
 * Input Validation with RegEx
 */
 
-$(document).on('submit', '.modal-body .myForm', function(e) {
-   e.preventDefault();
+$('body').on('submit', '.modal-body .myForm', function(e){
+   e.preventDefault()
 
-   let erro_Nome = false;
-   let erro_Email = false;
-   let erro_Cep = false;
-   let erro_Celular = false;
-   let erro_Cpf = false;
+   $('#msg_errorNome').hide();
+   $('#msg_errorEmail').hide();
+   $('#msg_errorCep').hide();
+   $('#msg_errorCelular').hide();
+   $('#msg_errorCpf').hide();
 
-   function check_Nome (){
+      let erroName = false;
+      let erroEmail = false;
+      let erroCep = false;
+      let erroCel = false;
+      let erroCpf = false;
 
-      let inputName = $('#nome').val();
-      let regxName = new RegExp (/^[A-Za-z]/);
+   $('#nome').focusout(function(){
+      check_Name();
+   });
+   $('#email').focusout(function(){
+      check_Email();
+   });
+   $('#cep').focusout(function(){
+      check_Cep();
+   });
+   $('#celular').focusout(function(){
+      check_Cel();
+   });
+   $('#cpf').focusout(function(){
+      check_Cpf();
+   });
 
-         if (!regxName.test(inputName)){
+   function check_Name(){
+      let nameLength = $('#nome').val().length;
+
+         if(nameLength < 2 || nameLength > 15){
+            $('#msg_errorNome').html('Digite um nome válido.');
             $('#msg_errorNome').show();
-            $('#msg_errorNome').text ('Digite um nome válido.');
-            erro_Nome = true
-         } else  {
-            (regxName.test(inputName))
+            erroName = true;
+         } else {
             $('#msg_errorNome').hide();
          }
-   };
+      }
 
    function check_Email(){
-
-      let inputEmail = $('#email').val();
-      let regxEmail = new RegExp (/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i);
-      
-         if (!regxEmail.test(inputEmail)){
-            $('#msg_errorEmail').show();
-            $('#msg_errorEmail').text ('Digite um email válido.');
-            erro_Email = true
-         } else  {
-            (regxEmail.test(inputEmail))
+      let regxEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(.[a-z]+)?$/gi
+   
+         if(regxEmail.test($('#email').val())){
             $('#msg_errorEmail').hide();
+         } else {
+            $('#msg_errorEmail').html('Digite um e-mail válido.');
+            $('#msg_errorEmail').show();
+            erroEmail = true;
          }
-   };
+      }
 
    function check_Cep(){
+      let regxCep = /^[0-9]{8}/;
 
-      let inputCep = $('#cep').val();
-      let regxCep = new RegExp (/^[0-9]{8}/);
-      
-         if (!regxCep.test(inputCep)){
-            $('#msg_errorCep').show();
-            $('#msg_errorCep').text ('Digite um CEP válido.');
-            erro_Cep = true
-         } else  {
-            (regxCep.test(inputCep))
+         if(regxCep.test($('#cep').val())){
             $('#msg_errorCep').hide();
+         } else {
+            $('#msg_errorCep').html('Digite um CEP válido.');
+            $('#msg_errorCep').show();
+            erroCep = true;
          }
-   };
+      }
 
-   function check_Celular(){
+   function check_Cel(){
+      let regxCel = /^[0-9]{11}/;
 
-      let inputCelular = $('#celular').val();
-      let regxCelular = new RegExp (/^[0-9]{11}/);
-      
-         if (!regxCelular.test(inputCelular)){
-            $('#msg_errorCelular').show();
-            $('#msg_errorCelular').text ('Digite um Celular válido.');
-            erro_Celular = true
-         } else  {
-            (regxCelular.test(inputCelular))
-            $('#msg_errorCelular').hide();
-         }
+      if(regxCel.test($('#celular').val())){
+         $('#msg_errorCelular').hide();
+      } else {
+         $('#msg_errorCelular').html('Digite um celular válido.');
+         $('#msg_errorCelular').show();
+         erroCel = true;
+      }
    }
 
    function check_Cpf(){
+      let regxCpf = /^[0-9]{11}/;
 
-      let inputCpf = $('#cpf').val();
-      let regxCpf = new RegExp (/^[0-9]{11}/);
-         
-         if (!regxCpf.test(inputCpf)){
-            $('#msg_errorCpf').show();
-            $('#msg_errorCpf').text ('Digite um CPF válido.');
-            erro_Cpf = true
-         } else  {
-            (regxCpf.test(inputCpf))
+         if(regxCpf.test($('#cpf').val())){
             $('#msg_errorCpf').hide();
+         } else {
+            $('#msg_errorCpf').html('Digite um CPF válido.');
+            $('#msg_errorCpf').show();
+            erroCpf = true;
          }
    }
 
-   $(body).submit(function(){
+})
 
-      erro_Nome = false;
-      erro_Email = false;
-      erro_Cep = false;
-      erro_Celular = false;
-      erro_Cpf = false;
+$('body').on('submit', '.modal-body .myForm', function(){
 
-      check_Nome ();
-      check_Email ();
-      check_Cep ();
-      check_Celular ();
-      check_Cpf();
+   erroName = false;
+   erroEmail = false;
+   erroCep = false;
+   erroCel = false;
+   erroCpf = false;
 
-      if(erro_Nome == false && erro_Email == false && erro_Cep == false && erro_Celular == false && erro_Cpf == false){
-         return true;
-      } else {
-         return false
-      }
-   })
+   check_Name();
+   check_Email();
+   check_Cep();
+   check_Cel();
+   check_Cpf();
+   
+   if (erroName == false && erroEmail == false && erroCep == false && erroCel == false && erroCpf){
+      return true;
+   } else {
+      return false;
+   }
 })
 
 /*
