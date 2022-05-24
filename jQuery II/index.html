@@ -218,51 +218,46 @@
                 <form action="post" class="myForm" id="myForm">
 
                     <div class="mb-3">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="text" name="nome" id="nome" title="Insira seu nome completo" class="form-control" placeholder="Digite seu nome" aria-describedby="helpNome">
-                        <small>*Campo Obrigatório</small>
-                        <p id="msg_errorNome"></p>
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" name="name" id="name" title="Insira seu nome completo" class="form-control" placeholder="Digite seu nome" aria-describedby="helpNome">
+                        <p id="textRequired">Campo Obrigatório.</p><p id="textErroName"></p>
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="text" name="email" id="email" class="form-control" placeholder="Digite seu e-mail" aria-describedby="helpEmail">
-                        <small>*Campo Obrigatório</small>
-                        <p id="msg_errorEmail"></p>
+                        <p id="textRequired">Campo Obrigatório.</p><p id="textErroEmail"></p>
                     </div>
 
                     <div class="mb-3">
                         <label for="date" class="form-label">Data</label>
                         <input type="date" name="date" id="date" class="form-control" placeholder="Digite seu e-mail" aria-describedby="helpDate">
+                        <p id="textRequired">Campo Obrigatório.</p>
                     </div>
 
                     <div class="mb-3">
                         <label for="time" class="form-label">Hora</label>
                         <input type="time" name="time" id="time" class="form-control" placeholder="Digite a hora" aria-describedby="helpHora">
+                        <p id="textRequired">Campo Obrigatório.</p>
                     </div>
 
                     <div class="mb-3">
                         <label for="cep" class="form-label">CEP</label>
                         <input type="number" name="cep" id="cep" class="form-control" placeholder="Digite seu CEP" aria-describedby="helpCEP">
-                        <small>*Campo Obrigatório</small>
-                        <p id="msg_errorCep"></p>
+                        <p id="textRequired">Campo Obrigatório.</p><p id="textErroCep"></p>
 
                     </div>
 
                     <div class="mb-3">
                         <label for="celular" class="form-label">Celular</label>
                         <input type="number" name="celular" id="celular" class="form-control" placeholder="Digite seu celular" aria-describedby="helpCelular">
-                        <small>*Campo Obrigatório</small>
-                        <p id="msg_errorCelular"></p>
-
+                        <p id="textRequired">Campo Obrigatório.</p><p id="textErroCel"></p>
                     </div>
 
                     <div class="mb-3">
                         <label for="cpf" class="form-label">CPF</label>
                         <input type="number" name="cpf" id="cpf" class="form-control" placeholder="Digite seu CPF" aria-describedby="helpCPF">
-                        <small>*Campo Obrigatório</small>
-                        <p id="msg_errorCpf"></p>
-
+                        <p id="textRequired">Campo Obrigatório.</p><p id="textErroCpf"></p>
                     </div>
                     <button type="submit" id="submitButton"class="btn btn-primary">Enviar</button>
                 </form>

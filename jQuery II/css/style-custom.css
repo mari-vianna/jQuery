@@ -314,11 +314,16 @@ a {
 	border: none;
 }
 
-#msg_errorNome, 
-#msg_errorEmail,
-#msg_errorCep,
-#msg_errorCelular,
-#msg_errorCpf {
+#textRequired {
+	color: grey;
+	padding: .3rem;
+}
+
+#textErroName, 
+#textErroEmail,
+#textErroCep,
+#textErroCel,
+#textErroCpf {
     color: red;
 	padding: .3rem;
 }
