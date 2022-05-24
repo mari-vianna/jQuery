@@ -66,7 +66,7 @@ function validate (elem){
       return false
    } else{
       elem.parent().find('#textRequired').hide()
-      elem.addClass('invalid')
+      elem.removeClass('invalid')
       return true
    }
 }
@@ -84,24 +84,84 @@ $('body').on('submit', '.modal-body .myForm', function(e){
       if(inputName < 2 || inputName > 15){
          $('#textErroName').html('Digite um nome válido.');
          $('#textErroName').show();
+         inputName.addClass('invalid');
       } else {
          $('#textErroName').hide();
+         inputName.removeClass('invalid');
       }
 
-   let inputEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(.[a-z]+)?$/gi
+   let inputEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.[a-z]+/gi
       if(inputEmail.test($('#email').val())){
          $('#textErroEmail').hide();
+         inputEmail.removeClass('invalid')  
       } else {
          $('#textErroEmail').html('Digite um e-mail válido.');
          $('#textErroEmail').show();
+         inputEmail.addClass('invalid');
       }
+
+   let inputCep = /^[0-9]{8}/;
+      if(inputCep.test($('#cep').val())){
+         $('#textErroCep').hide();
+         inputCep.removeClass('invalid')  
+      } else {
+         $('#textErroCep').html('Digite um CEP válido.');
+         $('#textErroCep').show();
+         inputCep.addClass('invalid');
+      }
+
+   let inputCel = /^[0-9]{11}/;
+      if(inputCel.test($('#celular').val())){
+         $('#textErroCel').hide();
+         inputCel.removeClass('invalid')  
+      } else {
+         $('#textErroCel').html('Digite um celular válido.');
+         $('#textErroCel').show();
+         inputCel.addClass('invalid');
+      }
+
+   let inputCpf = /^[0-9]{11}/;
+      if(inputCpf.test($('#cpf').val())){
+         $('#textErroCpf').hide();
+         inputCpf.removeClass('invalid')  
+      } else {
+         $('#textErroCpf').html('Digite um CPF válido.');
+         $('#textErroCpf').show();
+         inputCel.addClass('invalid');
+      }
+
+      validate(inputName)
+      validate(inputEmail)
+      validate(inputCep)
+      validate(inputCel)
+      validate(inputCpf)
+   
+   if(inputName.hasClass('invalid') || inputEmail.hasClass('invalid') || inputCep.hasClass('invalid') || inputCel.hasClass('invalid') ||inputCpf.hasClass('invalid')){
+      return false
+   } else{
+      $(this).submit()
+   }
 })
 
 $('body').on('blur', '#name', function(){
    validate($(this));
 })
-
 $('body').on('blur', '#email', function(){
+   validate($(this))
+})
+$('body').on('blur', '#date', function(){
+   validate($(this))
+})
+$('body').on('blur', '#time', function(){
+   validate($(this))
+})
+$('body').on('blur', '#cep', function(){
+   validate($(this))
+})
+$('body').on('blur', '#celular', function(){
+   validate($(this))
+})
+$('body').on('blur', '#cpf', function(){
    validate($(this))
 })
 
