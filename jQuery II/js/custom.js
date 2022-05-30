@@ -113,7 +113,7 @@ $('body').on('blur', '#time', function(){
 $('body').on('blur', '#cep', function(){
    validate($(this))
 })
-$('body').on('blur', '#phone', function(){
+$('body').on('blur', '#celular', function(){
    validate($(this))
 })
 $('body').on('blur', '#cpf', function(){
