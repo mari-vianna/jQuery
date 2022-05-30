@@ -319,15 +319,6 @@ a {
 	padding: .3rem;
 }
 
-#textErroName, 
-#textErroEmail,
-#textErroCep,
-#textErroCel,
-#textErroCpf {
-    color: red;
-	padding: .3rem;
-}
-
 /* Footer Style */
 .footer {
 	text-align: center;
