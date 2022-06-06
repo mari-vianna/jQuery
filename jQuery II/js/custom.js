@@ -18,8 +18,8 @@ $(document).ready(function(){
 $('#form-submit').on('click', function(e){
    e.preventDefault()
 
-   if($('#email').val() != ''){
-      $('#email').animate({
+   if($('#Email').val() != ''){
+      $('#Email').animate({
          opacity: "toggle",
          top: "-50"
       }, 500, function(){
@@ -121,7 +121,7 @@ $('body').on('blur', '#cpf', function(){
 })
 
 /*
-* Máscaras 
+* Masks
 */
 
 $(document).ready(function(){
