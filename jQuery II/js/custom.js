@@ -98,6 +98,9 @@ $('body').on('submit', '.modal-body #myForm', function(e){
 
 })
 
+$('body').on('blur', '#Email', function(){
+   validate($(this))
+})
 $('body').on('blur', '#name', function(){
    validate($(this))
 })
