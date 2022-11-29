@@ -173,7 +173,7 @@ a {
 
 /* Featured Style */
 .featured-item {
-	margin-bottom: 90px !important;
+	margin-bottom: 25px !important;
 }
 
 .featured-item {
@@ -856,5 +856,11 @@ a {
 		display: table-header-group;
 		float: none;
 	}
+}
 
+@media (max-width: 375px) {
+	.featured-item {
+		margin: 50px;
+	}
+	
 }
