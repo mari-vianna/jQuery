@@ -253,11 +253,31 @@ a {
 	width: 100%;
 }
 
-/*Fim Gallery*/
+/*Card*/
+
+.card{
+	margin: 20px;
+}
+
+.card-header{
+	background-color: #9ca3984b;
+}
+.card-header h4{
+	text-transform: uppercase;
+}
+
+.card-body{
+	margin: 10px;
+}
+
+.card-footer h2{
+	font-size: 20px;
+	color: #231a11;
+}
 
 /* Subscribe Style */
 .subscribe-form {
-	background-color: #f9f5f1b4;
+	background-color: #9ca3984b;
 	padding: 30px 0px;
 	text-align: center;
 }

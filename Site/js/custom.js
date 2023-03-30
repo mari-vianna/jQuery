@@ -1,17 +1,4 @@
 /*
-* Função que mostra o Carrossel
-*/
-
-$(document).ready(function(){
-
-   $('.owl-carousel').owlCarousel();
-   
-   let titulos = $('h4') 
-   let itens = $('.featured-item') 
-   let destaques = $('#featured') 
-});
-
-/*
 * Evento do Subscribe Form
 */
 
@@ -84,17 +71,13 @@ $('body').on('submit', '.modal-body #myForm', function(e){
 
    const inputName = $('#name')
    const inputEmail = $('#email')
-   const inputCep = $('#cep')
    const inputCel = $('#celular')
-   const inputCpf = $('#cpf')
 
    validate(inputName)
    validate(inputEmail)
-   validate(inputCep)
    validate(inputCel)
-   validate(inputCpf)
 
-   if(inputEmail.hasClass('invalid') || inputName.hasClass('invalid') || inputCep.hasClass('invalid') || inputCel.hasClass('invalid') || inputCpf.hasClass('invalid')){
+   if(inputEmail.hasClass('invalid') || inputName.hasClass('invalid') || inputCel.hasClass('invalid')){
       alert('Verificar campos obrigatórios.')
       return false
    } else {
@@ -112,19 +95,7 @@ $('body').on('blur', '#name', function(){
 $('body').on('blur', '#email', function(){
    validate($(this))
 })
-$('body').on('blur', '#date', function(){
-   validate($(this))
-}) 
-$('body').on('blur', '#time', function(){
-   validate($(this))
-})
-$('body').on('blur', '#cep', function(){
-   validate($(this))
-})
 $('body').on('blur', '#celular', function(){
-   validate($(this))
-})
-$('body').on('blur', '#cpf', function(){
    validate($(this))
 })
 
@@ -133,9 +104,5 @@ $('body').on('blur', '#cpf', function(){
 */
 
 $(document).ready(function(){
-   $('#date').mask('00/00/0000', {placeholder: '00/00/0000'});
-   $('#time').mask('00:00', {placeholder: '00:00'});
-   $('#cep').mask('00000-000', {placeholder: '00000-000'});
    $('#celular').mask('(00)0 0000-0000',{placeholder: '(00)0 0000-0000'});
-   $('#cpf').mask('000.000.000-00', {reverse: true, placeholder:'000.000.000-00'});
 })
